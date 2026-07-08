@@ -112,7 +112,9 @@ const LOG_DATA = [
 {"event":"routine_complete","searches_checked":1,"source":"decolar.com","timestamp":"2026-07-08T00:06:07Z"},
 {"event": "new_best_score", "search_id": "search_1", "origin": "GRU", "destination": "STM", "departure": "2026-09-24", "return": "2026-09-27", "previous_score": 0.0304, "new_score": 0.0, "price": 1855, "duration_hours": 9.08, "flight_out": {"departs": "19:25", "arrives": "03:25+1", "duration": "8h", "stops": "2 paradas", "airline": "Azul"}, "flight_back": {"departs": "03:05", "arrives": "14:10", "duration": "11h 5m", "stops": "1 parada", "airline": "LATAM"}, "link": "https://www.decolar.com/shop/flights/results/roundtrip/gru/stm/2026-09-24/2026-09-27/1/0/0", "whatsapp_sent": true, "source": "decolar.com", "timestamp": "2026-07-08T02:05:36Z"},
 {"event":"check_no_change","search_id":"search_1","origin":"GRU","destination":"STM","departure":"2026-09-24","return":"2026-09-27","current_score":0.234,"current_price":1954,"current_duration_hours":19.08,"best_score":0.0,"best_price":1855,"best_duration_hours":9.08,"note":"Cheapest found R$1954 (IDA Azul 19:25/8h + VOLTA LATAM 11h5m); best score this run 0.234 >= stored best 0.0, no change","source":"decolar.com","timestamp":"2026-07-08T03:05:12Z"},
-{"event":"routine_complete","searches_checked":1,"github_push":"ok","source":"decolar.com","timestamp":"2026-07-08T03:05:12Z"}
+{"event":"routine_complete","searches_checked":1,"github_push":"ok","source":"decolar.com","timestamp":"2026-07-08T03:05:12Z"},
+{"event":"check_no_change","search_id":"search_1","origin":"GRU","destination":"STM","departure":"2026-09-24","return":"2026-09-27","current_score":0.289,"current_price":2071,"current_duration_hours":16.5,"best_score":0.0,"best_price":1855,"best_duration_hours":9.08,"note":"Best combo this run: GRU 19:25→STM 03:25+1 (8h,2p,R$977) + STM 14:15→GRU 22:45 (8h30m,2p,R$1094) = R$2071 total. Score 0.289 > stored best 0.0, no change","source":"decolar.com","timestamp":"2026-07-08T04:06:50Z"},
+{"event":"routine_complete","searches_checked":1,"github_push":"pending","source":"decolar.com","timestamp":"2026-07-08T04:06:50Z"}
 ];
 // ============================================================
 
@@ -280,17 +282,4 @@ if (!visible.length) {
         detail = `Score: <strong>${e.current_score}</strong> &nbsp;·&nbsp; Preço: <strong>${brl(e.current_price)}</strong> &nbsp;·&nbsp; Duração: <strong>${e.current_duration_hours}h</strong> &nbsp;·&nbsp; Melhor score registrado: ${e.best_score}`;
         if (e.note) flightHtml = `<div class="flight-box">${e.note}</div>`;
       } else {
-        detail = `Preço <strong>${brl(e.current_price)}</strong> — igual ao registrado, sem notificação`;
-      }
-      if (e.source) detail += ` &nbsp;<span style="color:#334155">· ${e.source}</span>`;
-    } else if (e.event === 'search_configured') {
-      dotColor = '#3b82f6';
-      pillHtml = '<span class="pill p-blue">Configurado</span>';
-      titleExtra = `${e.origin} → ${e.destination} → ${e.origin}`;
-      detail = `Ida: ${e.departure} &nbsp;·&nbsp; Volta: ${e.return} &nbsp;·&nbsp; WhatsApp: +${e.whatsapp}`;
-    } else if (e.event === 'system_created') {
-      dotColor = '#7c3aed';
-      pillHtml = '<span class="pill p-sys">Sistema</span>';
-      detail = e.message;
-    } else {
-      p
+        detail = `Preço <strong>${brl(e.current_price)}</strong> — igual ao registrado
