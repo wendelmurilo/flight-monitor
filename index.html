@@ -271,7 +271,10 @@ const LOG_DATA = [
 {"event":"routine_complete","searches_checked":1,"github_push":"ok","source":"decolar.com","timestamp":"2026-07-08T12:05:04Z"},
 {"event": "check_no_change", "search_id": "search_1", "current_score": 0.3918, "current_price": 2136, "current_duration_hours": 19.08, "best_score": 0.0, "best_price": 1855, "best_duration_hours": 9.08, "note": "Cheapest found R$2075 (LATAM, 22h08m). Best cost-benefit R$2136 (Azul IDA 19:25-03:25+1 8h 2par + LATAM VOLTA 03:05-14:10 11h05m 1par). Prices higher than previous best.", "source": "decolar.com", "timestamp": "2026-07-08T13:06:04Z"},
 {"event": "routine_complete", "searches_checked": 1, "github_push": "ok", "source": "decolar.com", "timestamp": "2026-07-08T13:06:04Z"},
-{"event": "check_no_change", "search_id": "search_1", "current_score": 0.4, "current_price": 2075, "current_duration_hours": 22.08, "best_score": 0.0, "source": "decolar.com", "timestamp": "2026-07-08T14:05:16Z"}
+{"event": "check_no_change", "search_id": "search_1", "current_score": 0.4, "current_price": 2075, "current_duration_hours": 22.08, "best_score": 0.0, "source": "decolar.com", "timestamp": "2026-07-08T14:05:16Z"},
+{"event": "routine_complete", "searches_checked": 1, "github_push": "ok", "source": "decolar.com", "timestamp": "2026-07-08T14:05:47Z"},
+{"event":"check_no_change","search_id":"search_1","current_score":null,"current_price":null,"current_duration_hours":null,"best_score":0.0,"best_price":1855,"best_duration_hours":9.08,"note":"Page redirected to multioneway (per-leg selection). Outbound prices observed: cheapest R$1001 (19h, 1 stop), fastest R$1153 (6h20m, 1 stop), recommended R$1038 (11h, 2 stops). Roundtrip total estimated ~R$2000-2100 based on pattern. No improvement vs best_score 0.0 / R$1855.","source":"decolar.com","timestamp":"2026-07-08T15:06:50Z"}
+
 ];
 const bestScoreVal = Math.min(...LOG_DATA.filter(e => e.best_score != null).map(e => e.best_score));
 
