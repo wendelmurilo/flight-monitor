@@ -110,7 +110,9 @@ const LOG_DATA = [
 {"event":"routine_complete","searches_checked":1,"timestamp":"2026-07-07T01:31:00Z"},
 {"event":"check_no_change","search_id":"search_1","origin":"GRU","destination":"STM","departure":"2026-09-24","return":"2026-09-27","current_score":0.2799,"current_price":1291,"current_duration_hours":14.83,"best_score":0.0304,"best_price":1802,"note":"Cheapest found R$1192 (17.42h) via Decolar; best balance R$1291 (14.83h) — score higher than stored best, no notification","source":"decolar.com","timestamp":"2026-07-08T00:06:07Z"},
 {"event":"routine_complete","searches_checked":1,"source":"decolar.com","timestamp":"2026-07-08T00:06:07Z"},
-{"event": "new_best_score", "search_id": "search_1", "origin": "GRU", "destination": "STM", "departure": "2026-09-24", "return": "2026-09-27", "previous_score": 0.0304, "new_score": 0.0, "price": 1855, "duration_hours": 9.08, "flight_out": {"departs": "19:25", "arrives": "03:25+1", "duration": "8h", "stops": "2 paradas", "airline": "Azul"}, "flight_back": {"departs": "03:05", "arrives": "14:10", "duration": "11h 5m", "stops": "1 parada", "airline": "LATAM"}, "link": "https://www.decolar.com/shop/flights/results/roundtrip/gru/stm/2026-09-24/2026-09-27/1/0/0", "whatsapp_sent": true, "source": "decolar.com", "timestamp": "2026-07-08T02:05:36Z"}
+{"event": "new_best_score", "search_id": "search_1", "origin": "GRU", "destination": "STM", "departure": "2026-09-24", "return": "2026-09-27", "previous_score": 0.0304, "new_score": 0.0, "price": 1855, "duration_hours": 9.08, "flight_out": {"departs": "19:25", "arrives": "03:25+1", "duration": "8h", "stops": "2 paradas", "airline": "Azul"}, "flight_back": {"departs": "03:05", "arrives": "14:10", "duration": "11h 5m", "stops": "1 parada", "airline": "LATAM"}, "link": "https://www.decolar.com/shop/flights/results/roundtrip/gru/stm/2026-09-24/2026-09-27/1/0/0", "whatsapp_sent": true, "source": "decolar.com", "timestamp": "2026-07-08T02:05:36Z"},
+{"event":"check_no_change","search_id":"search_1","origin":"GRU","destination":"STM","departure":"2026-09-24","return":"2026-09-27","current_score":0.234,"current_price":1954,"current_duration_hours":19.08,"best_score":0.0,"best_price":1855,"best_duration_hours":9.08,"note":"Cheapest found R$1954 (IDA Azul 19:25/8h + VOLTA LATAM 11h5m); best score this run 0.234 >= stored best 0.0, no change","source":"decolar.com","timestamp":"2026-07-08T03:05:12Z"},
+{"event":"routine_complete","searches_checked":1,"github_push":"ok","source":"decolar.com","timestamp":"2026-07-08T03:05:12Z"}
 ];
 // ============================================================
 
@@ -291,20 +293,4 @@ if (!visible.length) {
       pillHtml = '<span class="pill p-sys">Sistema</span>';
       detail = e.message;
     } else {
-      pillHtml = `<span class="pill p-gray">${e.event}</span>`;
-      detail = JSON.stringify(e).slice(0, 120);
-    }
-
-    div.innerHTML = `
-      <div class="log-dot" style="background:${dotColor};${dotColor==='#22c55e'?'box-shadow:0 0 6px #22c55e55':''}"></div>
-      <div class="log-time">${fmtDate(e.timestamp)}</div>
-      <div class="log-body">
-        <div class="log-title">${pillHtml} <span style="color:#cbd5e1">${titleExtra}</span></div>
-        <div class="log-detail">${detail}${flightHtml}</div>
-      </div>`;
-    container.appendChild(div);
-  });
-}
-</script>
-</body>
-</html>
+      p
