@@ -114,7 +114,7 @@ const LOG_DATA = [
 {"event":"check_no_change","search_id":"search_1","origin":"GRU","destination":"STM","departure":"2026-09-24","return":"2026-09-27","current_score":0.234,"current_price":1954,"current_duration_hours":19.08,"best_score":0.0,"best_price":1855,"best_duration_hours":9.08,"note":"Cheapest found R$1954 (IDA Azul 19:25/8h + VOLTA LATAM 11h5m); best score this run 0.234 >= stored best 0.0, no change","source":"decolar.com","timestamp":"2026-07-08T03:05:12Z"},
 {"event":"routine_complete","searches_checked":1,"github_push":"ok","source":"decolar.com","timestamp":"2026-07-08T03:05:12Z"},
 {"event":"check_no_change","search_id":"search_1","origin":"GRU","destination":"STM","departure":"2026-09-24","return":"2026-09-27","current_score":0.289,"current_price":2071,"current_duration_hours":16.5,"best_score":0.0,"best_price":1855,"best_duration_hours":9.08,"note":"Best combo this run: GRU 19:25→STM 03:25+1 (8h,2p,R$977) + STM 14:15→GRU 22:45 (8h30m,2p,R$1094) = R$2071 total. Score 0.289 > stored best 0.0, no change","source":"decolar.com","timestamp":"2026-07-08T04:06:50Z"},
-{"event":"routine_complete","searches_checked":1,"github_push":"pending","source":"decolar.com","timestamp":"2026-07-08T04:06:50Z"}
+{"event":"routine_complete","searches_checked":1,"github_push":"ok","source":"decolar.com","timestamp":"2026-07-08T04:06:50Z"}
 ];
 // ============================================================
 
@@ -282,4 +282,4 @@ if (!visible.length) {
         detail = `Score: <strong>${e.current_score}</strong> &nbsp;·&nbsp; Preço: <strong>${brl(e.current_price)}</strong> &nbsp;·&nbsp; Duração: <strong>${e.current_duration_hours}h</strong> &nbsp;·&nbsp; Melhor score registrado: ${e.best_score}`;
         if (e.note) flightHtml = `<div class="flight-box">${e.note}</div>`;
       } else {
-        detail = `Preço <strong>${brl(e.current_price)}</strong> — igual ao registrado
+        detail = `Preço <strong>${brl(e.current_price)}</strong> — igual ao registrado, sem
