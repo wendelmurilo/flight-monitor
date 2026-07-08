@@ -121,7 +121,9 @@ const LOG_DATA = [
     {"event": "check_no_change", "search_id": "search_1", "origin": "GRU", "destination": "STM", "departure": "2026-09-24", "return": "2026-09-27", "current_score": 0.1842, "current_price": 1945, "current_duration_hours": 14.83, "best_score": 0.0, "best_price": 1855, "best_duration_hours": 9.08, "note": "Best combo this run: GRU 19:25->STM 01:45+1 (6h20m,1p,R$834) + STM 14:15->GRU 22:45 (8h30m,2p,GOL,R$1111) = R$1945 total. Score 0.1842 > stored best 0.0, no change. 43 combos evaluated.", "source": "decolar.com", "timestamp": "2026-07-08T06:06:08Z"},
     {"event": "routine_complete", "searches_checked": 1, "github_push": "ok", "source": "decolar.com", "timestamp": "2026-07-08T06:06:08Z"},
     {"event":"check_no_change","search_id":"search_1","origin":"GRU","destination":"STM","departure":"2026-09-24","return":"2026-09-27","current_score":0.2345,"current_price":1954,"current_duration_hours":19.08,"best_score":0.0,"best_price":1855,"best_duration_hours":9.08,"flight_out":{"departs":"19:25","arrives":"03:25+1","duration":"8h","stops":"2 paradas","airline":"Azul"},"flight_back":{"departs":"03:05","arrives":"14:10","duration":"11h 5m","stops":"1 parada","airline":"LATAM"},"note":"10 opcoes validas (<24h); mais barato R$1954 (Azul 19:25 8h + LATAM 11h5m). Score 0.2345 >= best 0.0, sem mudanca.","source":"decolar.com","timestamp":"2026-07-08T07:08:10Z"},
-    {"event":"routine_complete","searches_checked":1,"github_push":"pending","source":"decolar.com","timestamp":"2026-07-08T07:08:10Z"}
+    {"event":"routine_complete","searches_checked":1,"github_push":"pending","source":"decolar.com","timestamp":"2026-07-08T07:08:10Z"},
+    {"event":"check_no_change","search_id":"search_1","origin":"GRU","destination":"STM","departure":"2026-09-24","return":"2026-09-27","current_score":0.236,"current_price":1954,"current_duration_hours":19.08,"best_score":0.0,"best_price":1855,"best_duration_hours":9.08,"flight_out":{"departs":"19:25","arrives":"03:25+1","duration":"8h","stops":"2 paradas","airline":"Azul"},"flight_back":{"departs":"03:05","arrives":"14:10","duration":"11h 5m","stops":"1 parada","airline":"LATAM"},"note":"10 opcoes roundtrip; mais barato R$1954 (Azul 19:25 8h + LATAM 11h5m). Score 0.236 >= best 0.0, sem mudanca.","source":"decolar.com","timestamp":"2026-07-08T08:06:53Z"},
+    {"event":"routine_complete","searches_checked":1,"github_push":"ok","source":"decolar.com","timestamp":"2026-07-08T08:06:53Z"}
 ];
 const bestScoreVal = Math.min(...LOG_DATA.filter(e => e.best_score != null).map(e => e.best_score));
 
@@ -256,16 +258,4 @@ if (!visible.length) {
       titleExtra = `<strong>${brl(e.price)}</strong>`;
       detail = `Score: <strong>${e.new_score?.toFixed(4)}</strong> &nbsp;·&nbsp; Duração: <strong>${e.duration_hours}h</strong> &nbsp;·&nbsp; WhatsApp ✓`;
       if (e.flight_out) {
-        const fo = e.flight_out, fb = e.flight_back;
-        flightHtml = `<div class="flight-box">
-          🛫 <strong>IDA</strong> ${fo.departs} → ${fo.arrives} &nbsp;·&nbsp; ${fo.duration} &nbsp;·&nbsp; ${fo.stops} &nbsp;·&nbsp; ${fo.airline}<br>
-          🛬 <strong>VOLTA</strong> ${fb ? `${fb.departs} → ${fb.arrives} &nbsp;·&nbsp; ${fb.duration} &nbsp;·&nbsp; ${fb.stops} &nbsp;·&nbsp; ${fb.airline}` : '—'}
-          ${e.link ? `<br><a href="${e.link}" target="_blank">🔗 Ver passagem</a>` : ''}
-        </div>`;
-      }
-    } else if (e.event === 'check_no_change') {
-      dotColor = '#334155';
-      pillHtml = '<span class="pill p-gray">Sem mudança</span>';
-      titleExtra = e.current_price ? brl(e.current_price) : '';
-      if (e.current_score != null) {
-        detail = `Score: <strong>${
+        const fo = e.flight_o
