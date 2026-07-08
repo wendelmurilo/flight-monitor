@@ -273,7 +273,10 @@ const LOG_DATA = [
 {"event": "routine_complete", "searches_checked": 1, "github_push": "ok", "source": "decolar.com", "timestamp": "2026-07-08T13:06:04Z"},
 {"event": "check_no_change", "search_id": "search_1", "current_score": 0.4, "current_price": 2075, "current_duration_hours": 22.08, "best_score": 0.0, "source": "decolar.com", "timestamp": "2026-07-08T14:05:16Z"},
 {"event": "routine_complete", "searches_checked": 1, "github_push": "ok", "source": "decolar.com", "timestamp": "2026-07-08T14:05:47Z"},
-{"event":"check_no_change","search_id":"search_1","current_score":null,"current_price":null,"current_duration_hours":null,"best_score":0.0,"best_price":1855,"best_duration_hours":9.08,"note":"Page redirected to multioneway (per-leg selection). Outbound prices observed: cheapest R$1001 (19h, 1 stop), fastest R$1153 (6h20m, 1 stop), recommended R$1038 (11h, 2 stops). Roundtrip total estimated ~R$2000-2100 based on pattern. No improvement vs best_score 0.0 / R$1855.","source":"decolar.com","timestamp":"2026-07-08T15:06:50Z"}
+{"event":"check_no_change","search_id":"search_1","current_score":null,"current_price":null,"current_duration_hours":null,"best_score":0.0,"best_price":1855,"best_duration_hours":9.08,"note":"Page redirected to multioneway (per-leg selection). Outbound prices observed: cheapest R$1001 (19h, 1 stop), fastest R$1153 (6h20m, 1 stop), recommended R$1038 (11h, 2 stops). Roundtrip total estimated ~R$2000-2100 based on pattern. No improvement vs best_score 0.0 / R$1855.","source":"decolar.com","timestamp":"2026-07-08T15:06:50Z"},
+{"event":"routine_complete","searches_checked":1,"github_push":"ok","source":"decolar.com","timestamp":"2026-07-08T15:06:50Z"},
+{"event":"check_no_change","search_id":"search_1","origin":"GRU","destination":"STM","departure":"2026-09-24","return":"2026-09-27","current_score":0.306,"current_price":1733,"current_duration_hours":17.41,"best_score":0.0,"best_price":1855,"best_duration_hours":9.08,"top_combo":{"ida":{"departs":"19:25","arrives":"01:45+1","duration":"6h 20m","stops":1,"airline":"?","price":893},"volta":{"departs":"03:05","arrives":"14:10","duration":"11h 5m","stops":1,"airline":"LATAM","price":840}},"source":"decolar.com","timestamp":"2026-07-08T16:06:26Z"},
+{"event":"routine_complete","searches_checked":1,"github_push":"ok","source":"decolar.com","timestamp":"2026-07-08T16:06:26Z"}
 
 ];
 const bestScoreVal = Math.min(...LOG_DATA.filter(e => e.best_score != null).map(e => e.best_score));
@@ -398,15 +401,4 @@ if (!visible.length) {
       if (e.flight_out) {
         const fo = e.flight_out, fb = e.flight_back;
         flightHtml = `<div class="flight-box">
-          🛫 <strong>IDA</strong> ${fo.route||''} &nbsp;·&nbsp; ${fo.departs} → ${fo.arrives} &nbsp;·&nbsp; ${fo.duration} &nbsp;·&nbsp; ${fo.stops} &nbsp;·&nbsp; ${fo.airline}<br>
-          🛬 <strong>VOLTA</strong> ${fb ? `${fb.route||''} &nbsp;·&nbsp; ${fb.departs} → ${fb.arrives} &nbsp;·&nbsp; ${fb.duration} &nbsp;·&nbsp; ${fb.stops} &nbsp;·&nbsp; ${fb.airline}` : '—'}
-          ${e.link ? `<br><a href="${e.link}" target="_blank">🔗 Ver passagem</a>` : ''}
-        </div>`;
-      }
-    } else if (e.event === 'new_best_score') {
-      dotColor = '#22c55e';
-      pillHtml = '<span class="pill p-green">↓ Melhor score</span>';
-      titleExtra = `<strong>${brl(e.price)}</strong>`;
-      detail = `Score: <strong>${e.new_score?.toFixed(4)}</strong> &nbsp;·&nbsp; Duração: <strong>${e.duration_hours}h</strong> &nbsp;·&nbsp; WhatsApp ✓`;
-      if (e.flight_out) {
-        const fo = e.flight_o
+          🛫 <strong>IDA</strong> ${fo.route||''} &nbsp;·&nbsp; ${fo.departs} → ${fo.arrives} &nbsp;·&nbsp; ${fo.du
