@@ -352,7 +352,9 @@ const LOG_DATA = [
 {"event":"session_memory_saved","file":"C:\\Claude\\Travel\\session-memory.md","timestamp":"2026-07-09T08:04:21Z"},
 {"event": "check_no_change", "search_id": "search_1", "current_score": 0.0475, "current_price": 961, "current_duration_hours": 8.67, "best_score": 0.0473, "source": "decolar.com", "timestamp": "2026-07-09T09:04:40Z"},
 {"event": "routine_complete", "searches_checked": 1, "github_push": "ok", "source": "decolar.com", "timestamp": "2026-07-09T09:05:35Z"},
-{"event":"check_no_change","search_id":"search_1","origin":"GRU","destination":"STM","departure":"2026-09-24","return":"2026-09-27","current_score":0.0473,"current_price":961,"current_duration_hours":8.67,"best_score":0.0473,"best_price":961,"best_duration_hours":8.67,"flight_out":{"departs":"06:00","arrives":"14:40","duration":"8h 40m","stops":"2 paradas","airline":"Gol"},"note":"10 opcoes IDA validas (<24h); mesmo resultado anterior - cheapest R61 (GRU 06:00->STM 14:40, 8h40m, 2p, Gol). Score 0.0473 = best_score, sem mudanca.","source":"decolar.com","timestamp":"2026-07-09T10:04:25Z"}
+{"event":"check_no_change","search_id":"search_1","origin":"GRU","destination":"STM","departure":"2026-09-24","return":"2026-09-27","current_score":0.0473,"current_price":961,"current_duration_hours":8.67,"best_score":0.0473,"best_price":961,"best_duration_hours":8.67,"flight_out":{"departs":"06:00","arrives":"14:40","duration":"8h 40m","stops":"2 paradas","airline":"Gol"},"note":"10 opcoes IDA validas (<24h); mesmo resultado anterior - cheapest R61 (GRU 06:00->STM 14:40, 8h40m, 2p, Gol). Score 0.0473 = best_score, sem mudanca.","source":"decolar.com","timestamp":"2026-07-09T10:04:25Z"},
+{"event":"check_no_change","search_id":"search_1","origin":"GRU","destination":"STM","departure":"2026-09-24","return":"2026-09-27","current_score":0.0473,"current_price":961,"current_duration_hours":8.67,"best_score":0.0473,"best_price":961,"best_duration_hours":8.67,"flight_out":{"departs":"06:00","arrives":"14:40","duration":"8h 40m","stops":"2 paradas","airline":"desconhecida"},"note":"10 opcoes IDA validas (<24h); cheapest R$961 (GRU 06:00->STM 14:40, 8h40m, 2p). Score 0.0473 = best_score, sem mudanca.","source":"decolar.com","timestamp":"2026-07-09T11:03:39Z"},
+{"event":"routine_complete","searches_checked":1,"github_push":"ok","source":"decolar.com","timestamp":"2026-07-09T11:03:39Z"}
 ];
 const bestScoreVal = Math.min(...LOG_DATA.filter(e => e.best_score != null).map(e => e.best_score));
 
@@ -399,33 +401,4 @@ new Chart(document.getElementById('priceChart'), {
     plugins: {
       legend: { display: false },
       tooltip: {
-        backgroundColor: '#1a1f2e',
-        borderColor: '#252d40',
-        borderWidth: 1,
-        titleColor: '#94a3b8',
-        bodyColor: '#e2e8f0',
-        callbacks: { label: ctx => '  ' + brl(ctx.raw) }
-      }
-    },
-    scales: {
-      y: {
-        beginAtZero: false,
-        grid: { color: '#1e253888' },
-        ticks: { callback: v => 'R$' + v.toLocaleString('pt-BR') }
-      },
-      x: {
-        grid: { color: '#1e253844' },
-        ticks: { font: { size: 9 }, maxRotation: 30 }
-      }
-    }
-  }
-});
-
-// Score chart
-new Chart(document.getElementById('scoreChart'), {
-  type: 'bar',
-  data: {
-    labels: scoreEvents.map(e => fmtDate(e.timestamp)),
-    datasets: [{
-      label: 'Score',
-      data
+        back
